@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<script defer="" src="../../static/js/main.js"></script>
+<script defer="" src="../../static/js/lib/jquery-3.4.1.js"></script>
+<script defer="" src="../../static/js/lib/popper-1.12.9.js"></script>
+<script defer="" src="../../static/js/lib/bootstrap-4.1.3.js"></script>
+<script defer="" src="../../static/js/lib/featherlight-1.7.13.js"></script>
+<script defer="" src="../../static/js/lib/intercooler-1.2.3.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<title>My Games</title>
+<meta content="Match History for Overwatch, Valorant, and Apex Legends" property="og:title"/>
+<meta content="Match History for Overwatch, Valorant, and Apex Legends" name="twitter:title"/>
+<meta content="Automatically track your Overwatch, Valorant, and Apex Legends games with computer vision.
+ Get full match history with details on everything that happened over the course of your games; kills, deaths, winrate statistics, composition, ults (Overwatch, Valorant), and map route + circles (Apex Legends)" property="og:description"/>
+<meta content="Automatically track your Overwatch, Valorant, and Apex Legends games with computer vision.
+ Get full match history with details on everything that happened over the course of your games; kills, deaths, winrate statistics, composition, ults (Overwatch, Valorant), and map route + circles (Apex Legends)" name="description"/>
+<meta content="Automatically track your Overwatch, Valorant, and Apex Legends games with computer vision.
+ Get full match history with details on everything that happened over the course of your games; kills, deaths, winrate statistics, composition, ults (Overwatch, Valorant), and map route + circles (Apex Legends)" property="twitter:description"/>
+<meta content="https://cdn.overtrack.gg/static/images/teaser_ow_val.jpg" property="og:image"/>
+<meta content="https://cdn.overtrack.gg/static/images/teaser_ow_val.jpg" property="twitter:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="OverTrack.gg" property="og:site_name">
+<meta content="OverTrack.gg" name="twitter:site"/>
+<link href="https://cdn.overtrack.gg/static/oembed.json" type="application/json+oembed"/>
+<link href="../../static/css/apex.css" rel="stylesheet" type="text/css"/>
+<link href="../../static/images/favicon.png" rel="shortcut icon" type="image/png">
+</link></meta></head>
+<body class="has-background-black-ter has-text-white">
+<nav class="navbar navbar-expand-lg navbar-dark pd-sm-0">
+<a class="navbar-brand" href="../../">
+<img src="../../static/images/favicon.png"/>
+        OverTrack
+    </a>
+<button class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse justify-content-between" id="navbar">
+<ul class="navbar-nav">
+<li class="nav-item dropdown game-selector" style="font-weight: bold;">
+<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                    Apex Legends
+                    <img src="../../static/images/apex.png"/>
+</a>
+<div class="dropdown-menu dropdown-menu-right text-right">
+<a class="dropdown-item" href="../../overwatch/games/">
+                        Overwatch
+                        <img src="../../static/images/overwatch-dark.png"/>
+</a>
+<a class="dropdown-item active" href="/">
+                        Apex Legends
+                        <img src="../../static/images/apex-dark.png"/>
+</a>
+<a class="dropdown-item" href="../../valorant/games/">
+                        Valorant
+                        <img src="../../static/images/valorant-dark.png"/>
+</a>
+</div>
+</li>
+<div class="dropdown-divider"></div>
+<li class="divider-vertical"></li>
+<li class="nav-item active" style="font-weight: bold;">
+<a class="nav-link" href="./">
+        Games
+    </a>
+</li>
+<li class="nav-item" style="font-weight: bold;">
+<a class="nav-link" href="../stats/">
+        Stats
+    </a>
+</li>
+<div class="dropdown-divider"></div>
+</ul>
+<ul class="navbar-nav pull-right">
+<li class="nav-item" style="font-weight: bold;">
+<a class="nav-link" href="../../faq/">
+        FAQ &amp; Help
+    </a>
+</li>
+<li class="nav-item" style="font-weight: bold;">
+<a class="nav-link" href="../../about/">
+        About
+    </a>
+</li>
+<li class="divider-vertical"></li>
+<li class="nav-item dropdown" style="font-weight: bold;">
+<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" style="color: white;">
+                    DEMO-USER
+                </a>
+<div class="dropdown-menu dropdown-menu-right">
+<a class="dropdown-item" href="../../logout/">Logout</a>
+</div>
+</li>
+</ul>
+</div>
+</nav>
+<br/>
+<div class="container">
+<div class="alert alert-info alert-dismissible fade show" role="alert">
+<strong>Public Archive Snapshot:</strong> OverTrack has been retired.<br/>This site is a functional snapshot of a logged-in view, using real game data from when the system was operational.
+<button aria-label="Close" class="close" data-dismiss="alert" type="button">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+</div>
+<section>
+<div class="container games-list">
+<div class="row">
+<div class="col-lg-30pc col-sm-12 games-list-panels">
+<div class="card season-selector">
+<div class="card-body">
+<!-- <h5>Season:</h5> -->
+<div class="dropdown">
+<button aria-expanded="false" aria-haspopup="true" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" type="button">
+                                    Season 8 Ranked
+                                </button>
+<div aria-labelledby="dropdownMenuButton" class="dropdown-menu">
+<a class="dropdown-item" href="?season=8&amp;ranked=false">Season 8</a>
+</div>
+</div>
+</div>
+</div>
+<div class="card rank">
+<div class="card-body">
+<div class="row">
+<div class="col-lg-100pc col-sm-6">
+</div>
+<div class="col-lg-100pc col-sm-6">
+</div>
+</div>
+</div>
+</div>
+<!--                    <div class="card stats">-->
+<!--                        <div class="card-header">-->
+<!--                            <h5>Stats</h5>-->
+<!--                        </div>-->
+<!--                        <div class="card-body">-->
+<!--                            Coming Soon!-->
+<!--                        </div>-->
+<!--                    </div>-->
+</div>
+<div class="col-lg-70pc col-sm-12 games-list-games">
+<div class="table-responsive">
+<a class="make-clickable-target">
+<table class="table table-dark table-borderless table-striped table-hover shadow games-list narrow" id="gamesList">
+<thead class="">
+<tr>
+<th class="time">Time</th> <th class="duration">Duration</th>
+<th class="squad">Squad</th>
+<th class="knockdowns" style="text-align: right;">Downs</th>
+<th class="kills" style="text-align: right;">Kills</th>
+<th class="placed" style="text-align: right;">Placed</th>
+<th class="dropped">Landed</th>
+<th class="squad-kills" style="text-align: right;">Squad Kills</th>
+<!--<th>Favourite Weapons</th>-->
+<th class="rank">Rank</th>
+<th class="rp-delta">RP </th>
+</tr>
+</thead>
+<tbody id="gamesListBody">
+<tr>
+<td class="date-divider date-divider-invisible date-divider-timestamp" colspan="10" data-timestamp="1616234400">
+</td>
+</tr>
+<tr></tr>
+<tr class="placed-1" data-href="/apex/games/mock-apex-1" data-key="mock-apex-1">
+<td class="time"><div class="epoch-format-time">1616234400</div></td> <td class="duration">15:00</td>
+<td class="squad m-0 p-0 h-100 noheight">
+<div class="character-icon highlight" style='background-image: url("../../static/images/apex/wraith.png")'></div>
+<div class="character-icon" style='background-image: url("../../static/images/apex/bangalore.png")'></div>
+<div class="character-icon" style='background-image: url("../../static/images/apex/bloodhound.png")'></div>
+</td>
+<td class="knockdowns">
+            3
+        </td>
+<td class="kills">
+            5
+        </td>
+<td class="placed">
+            #1
+        </td>
+<td class="dropped">
+            Fragment East
+        </td>
+<td class="squad-kills">
+            9
+        </td>
+<td class="rank m-0 p-0 h-100 noheight">
+<div class="rank-icon" style='background-image: url("../../static/images/apex/platinum.png")'>
+<div class="rank-tier">II</div>
+</div>
+</td>
+<td class="rp-delta">
+            +75
+        </td>
+</tr>
+<tr>
+<td class="date-divider date-divider-invisible date-divider-timestamp" colspan="10" data-timestamp="1616230800">
+</td>
+</tr>
+<tr></tr>
+<tr class="placed-4" data-href="/apex/games/mock-apex-2" data-key="mock-apex-2">
+<td class="time"><div class="epoch-format-time">1616230800</div></td> <td class="duration">14:10</td>
+<td class="squad m-0 p-0 h-100 noheight">
+<div class="character-icon highlight" style='background-image: url("../../static/images/apex/pathfinder.png")'></div>
+<div class="character-icon" style='background-image: url("../../static/images/apex/lifeline.png")'></div>
+<div class="character-icon" style='background-image: url("../../static/images/apex/octane.png")'></div>
+</td>
+<td class="knockdowns">
+            2
+        </td>
+<td class="kills">
+            3
+        </td>
+<td class="placed">
+            #4
+        </td>
+<td class="dropped">
+            Skyhook
+        </td>
+<td class="squad-kills">
+            6
+        </td>
+<td class="rank m-0 p-0 h-100 noheight">
+<div class="rank-icon" style='background-image: url("../../static/images/apex/platinum.png")'>
+<div class="rank-tier">II</div>
+</div>
+</td>
+<td class="rp-delta">
+            -48
+        </td>
+</tr>
+</tbody>
+</table>
+</a>
+<div id="indicator" style="justify-content: center !important;; display: none !important;">
+<div class="spinner-border" role="status">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script defer="" src="../../static/js/lib/d3.v5.js"></script>
+<script defer="" src="../../static/js/apex/map.js"></script>
+<script defer="" src="../../static/js/apex/dates.js"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-99105415-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-99105415-3');
+</script>
+</body>
+</html>

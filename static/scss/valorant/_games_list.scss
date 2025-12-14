@@ -1,0 +1,220 @@
+$summary-height: 80px;
+$thumbnail-width: 80px;
+
+@media (max-width: 576px){
+    .session {
+        padding-right: 0;
+        .card-body {
+            padding: 0;
+        }
+    }
+    .games-selector {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .row {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .no-lg {
+        display: none !important;
+    }
+}
+
+@media (max-width: 740px){
+    .no-sm {
+        display: none !important;
+    }
+}
+
+@media (max-width: 440px){
+    .no-xs {
+        display: none !important;
+    }
+}
+
+.absolute-bottomright {
+    position: absolute !important;
+    right: 0;
+    bottom: 0;
+    z-index: 1030;
+}
+
+.fit-content {
+    width: fit-content;
+}
+
+@function stroke($stroke, $color) {
+  $shadow: ();
+  $from: $stroke*-1;
+  @for $i from $from through $stroke {
+   @for $j from $from through $stroke {
+      $shadow: append($shadow, $i*1px $j*1px 0 $color, comma);
+    }
+  }
+  @return $shadow;
+}
+@mixin stroke($stroke, $color) {
+  text-shadow: stroke($stroke, $color);
+}
+
+.games-list, .public-profiles {
+
+    $player-summary-width: 500px;
+    .player-summary {
+        height: $summary-height;
+        width: $player-summary-width;
+        min-width: $player-summary-width;
+        max-width: $player-summary-width;
+        background-color: #2b435e;
+
+        .player-backdrop {
+            height: 100%;
+        }
+    }
+
+    .game-summary {
+        height: $summary-height;
+        margin: 5px !important;
+        color: #ffffff;
+
+        h1, h2, h3, h4, h5, h6, p {
+            white-space: nowrap;
+        }
+
+        .darken-bg {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        &.result-win {
+            .game-backdrop {
+                border-left: 5px solid #bdd9d5;
+                background: linear-gradient(to right, #7eb6af 0%, $win-color 15%, $win-color 60%, white 100%);
+                @media (max-width: 740px){
+                    background: linear-gradient(to right, #7eb6af 0%, $win-color 15%);
+                }
+            }
+        }
+        &.result-loss {
+            .game-backdrop {
+                border-left: 5px solid #e9b4b7;
+                background: linear-gradient(to right, #d37074 0%, $loss-color 15%, $loss-color 60%, white 100%);
+                @media (max-width: 740px){
+                    background: linear-gradient(to right, #d37074 0%, $loss-color 15%);
+                }
+            }
+        }
+        &.result-scrim {
+            .game-backdrop {
+                border-left: 5px solid $scrim-color;
+                background: linear-gradient(to right, #DBBC20 0%, $scrim-color 15%, $scrim-color 60%, white 100%);
+                @media (max-width: 740px){
+                    background: linear-gradient(to right, #DBBC20 0%, $scrim-color 15%);
+                }
+            }
+        }
+
+        .game-backdrop {
+            height: 100%;
+            .rank-indicator {
+                z-index: 1;
+                vertical-align: middle;
+                height: 100%;
+                left: -15px;
+                display: inline-block;
+                background-origin: border-box;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: left;
+            }
+            .rank-image {
+                height: 80%;
+                position: absolute;
+                top: 10%;
+            }
+        }
+
+        .game-timestamp {
+            color: rgba(255, 255, 255, 0.9) !important;
+            text-shadow: stroke(1, black);
+        }
+
+        .agent-backdrop {
+            width: 30%;
+            height: $summary-height;
+            position: absolute;
+            -webkit-mask-image: -webkit-gradient(linear, 80% top, right top, from(black), to(rgba(0, 0, 0, 0)));
+        }
+
+        .map-image {
+            height: 100%;
+            width: 33%;
+            min-width: 200px;
+            position: absolute;
+            filter: blur(0.5px);
+
+            //-webkit-mask-image: -webkit-gradient(linear, 75% top, right top, from(black), to(rgba(0, 0, 0, 0)));
+            right: 0;
+            -webkit-mask-image: -webkit-gradient(linear, left top, 25% top, from(rgba(0, 0, 0, 0)), to(black));
+
+            display: block;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+    .player-summary, .game-summary {
+        .agent-thumbnail {
+            width: $thumbnail-width;
+            min-width: $thumbnail-width;
+            max-width: $thumbnail-width;
+            height: 100%;
+
+            display: block;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+    .custom-switch-lg {
+        padding-left: 2.25rem;
+        padding-bottom: 0.5rem;
+
+        .custom-control-label {
+            padding-top: 0.5rem;
+            padding-left: 2rem;
+            padding-bottom: 0.1rem;
+            user-select: none;
+        }
+        .custom-control-label::before {
+            left: -2.25rem;
+            height: 2rem;
+            width: 3.5rem;
+            pointer-events: all;
+            border-radius: 1rem;
+        }
+        &.disabled .custom-control-label::before {
+            background-color: rgb(95, 95, 95);
+        }
+        .custom-control-label::after {
+            top: calc(0.25rem + 2px);
+            left: calc(-2.25rem + 2px);
+            width: calc(2rem - 4px);
+            height: calc(2rem - 4px);
+            background-color: #adb5bd;
+            border-radius: 2rem;
+            transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
+            transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
+        }
+        .custom-control-input:checked ~ .custom-control-label::after {
+            background-color: #fff;
+            -webkit-transform: translateX(1.5rem);
+            transform: translateX(1.5rem)
+        }
+    }
+}

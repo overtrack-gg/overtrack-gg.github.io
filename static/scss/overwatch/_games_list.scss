@@ -1,0 +1,233 @@
+$summary-bg: #BFBFBF;
+$summary-fg: black;
+
+$summary-height: 80px;
+$summary-width: 290px;
+
+$thumbnail-width: 110px;
+
+@media (max-width: 576px){
+    .session .col-sm-12 {
+        padding-right: 0;
+    }
+    .games-selector {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .row {
+        margin-right: 0;
+    }
+}
+
+.games-selector {
+    .dropdown-menu {
+        width: 100%;
+    }
+}
+
+.sub-request, .trial-reminder {
+    background-color: #5d518e;
+    color: white;
+    border: none;
+
+    p > a {
+        text-decoration: underline;
+        color: #ffbde8;
+    }
+    p > a:hover {
+        text-decoration: underline;
+        color: #fffffff;
+    }
+}
+
+.session {
+    margin-top: 10px;
+    min-width: 340px;
+
+    .card-header {
+        background-color: #5d518e;
+        min-height: 45px;
+    }
+    .card-body {
+        padding: 5px;
+    }
+}
+
+.game-summary {
+    height: $summary-height;
+    min-width: $summary-width;
+    margin: 5px !important;
+    //margin-bottom: 15px !important;
+
+    border-radius: 4px;
+    border: hidden;
+    overflow: hidden;
+
+    background-color: $summary-bg;
+
+    color: $summary-fg;
+
+    .row {
+        height: 100%;
+    }
+    .col {
+        height: 100%;
+    }
+
+    .thumbnail {
+        width: $thumbnail-width;
+        min-width: $thumbnail-width;
+        max-width: $thumbnail-width;
+        height: 100%;
+
+        overflow: visible;
+        display: block;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        .wedge {
+            left: $thumbnail-width - 25px;
+            border: 0;
+            height: 100%;
+            position: relative;
+            transform: skewX(-20deg);
+            border-radius: 0;
+            background-color: $summary-bg;
+            width: 300%;
+        }
+
+        .hero-icon {
+            float: right;
+            right: 4px;
+            position: absolute;
+            top: ($summary-height - 50px) / 2;
+
+            width: 50px;
+            height: 50px;
+        }
+
+        .role-tank .hero-icon-background {
+            background-color: #e1af41;
+        }
+        .role-damage .hero-icon-background {
+            background-color: #e164aa;
+        }
+        .role-support .hero-icon-background {
+            background-color: #4ba5c8;
+        }
+        .role-unknown .hero-icon-background {
+            background-color: gray;
+        }
+
+        .hero-icon-background {
+            z-index: 0;
+            transform: skewX(-20deg);
+            border-color: rgba(255, 255, 255, 0.5);
+            border-style: solid;
+            border-width: 2px;
+            height: 100%;
+            width: 90%;
+        }
+
+        .hero-icon-image {
+            position: absolute;
+            left: -6px;
+            top: 2px;
+            z-index: 1;
+            height: 91.5%;
+            clip-path: polygon(32% 0%, 112% 0%, 79% 100%, 0% 100%);
+        }
+    }
+
+    .game-result {
+        margin-bottom: 5px;
+    }
+    .game-time {
+        padding-top: 4px;
+        margin: 0;
+    }
+
+    .details {
+        height: 100%;
+        padding: 10px;
+        padding-left: 20px;
+
+        .game-result-win {
+            color: #027800;
+        }
+        .game-result-loss {
+            color: #c62723;
+        }
+        .game-result-draw {
+            color: #f89406;
+        }
+        .game-result-unknown {
+            color: #e305f8;
+        }
+    }
+
+    .text-muted {
+        color: #6c757d !important;
+    }
+
+    .edit-link {
+        display: none;
+        z-index: 2;
+        position: absolute;
+        right: 0px;
+        bottom: 0;
+        height: 20px;
+        width: 20px;
+        border-radius: 2px;
+        &:hover {
+            background-color: #5d518e;
+        }
+    }
+    .edit-link::after {
+        display: inline-block;
+        content: "";
+        background-image: url("data:image/svg+xml,<svg class='bi bi-pencil' width='1em' height='1em' viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'>
+  <path fill-rule='evenodd' d='M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z'></path>
+  <path fill-rule='evenodd' d='M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z'></path>
+</svg>");
+        background-repeat: no-repeat;
+        margin-left: 2px;
+        width: 15px;
+        height: 15px;
+    }
+    &:hover .edit-link{
+        display: unset;
+    }
+}
+
+.session-sr-row {
+    .role-tank {
+        color: #e1af41;
+        img {
+            height: 1.5em;
+        }
+    }
+    .role-damage {
+        color: #e164aa;
+        img {
+            height: 1.5em;
+        }
+    }
+    .role-support {
+        color: #4ba5c8;
+        img {
+            height: 1.5em;
+        }
+    }
+    .role-unknown {
+        color: gray;
+    }
+    .role-role {
+        filter: brightness(0) invert(1.0);
+    }
+
+    img {
+        height: 1.5em;
+    }
+}

@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<script defer="" src="static/js/main.js"></script>
+<script defer="" src="static/js/lib/jquery-3.4.1.js"></script>
+<script defer="" src="static/js/lib/popper-1.12.9.js"></script>
+<script defer="" src="static/js/lib/bootstrap-4.1.3.js"></script>
+<script defer="" src="static/js/lib/featherlight-1.7.13.js"></script>
+<script defer="" src="static/js/lib/intercooler-1.2.3.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<title>DEMO-USER's Overwatch Games</title>
+<link href="static/css/overwatch.css" rel="stylesheet" type="text/css"/>
+<link href="static/images/favicon.png" rel="shortcut icon" type="image/png">
+</link></head>
+<body class="has-background-black-ter has-text-white">
+<nav class="navbar navbar-expand-lg navbar-dark pd-sm-0">
+<a class="navbar-brand" href="./">
+<img src="static/images/favicon.png"/>
+        OverTrack
+    </a>
+<button class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse justify-content-between" id="navbar">
+<ul class="navbar-nav">
+<li class="nav-item dropdown game-selector" style="font-weight: bold;">
+<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                    Overwatch
+                    <img src="static/images/overwatch.png"/>
+</a>
+<div class="dropdown-menu dropdown-menu-right text-right">
+<a class="dropdown-item active" href="overwatch/games/">
+                        Overwatch
+                        <img src="static/images/overwatch-dark.png"/>
+</a>
+<a class="dropdown-item" href="apex/games/">
+                        Apex Legends
+                        <img src="static/images/apex-dark.png"/>
+</a>
+<a class="dropdown-item" href="valorant/games/">
+                        Valorant
+                        <img src="static/images/valorant-dark.png"/>
+</a>
+</div>
+</li>
+<div class="dropdown-divider"></div>
+<li class="divider-vertical"></li>
+<li class="nav-item active" style="font-weight: bold;">
+<a class="nav-link" href="overwatch/games/">
+        Games
+    </a>
+</li>
+<li class="nav-item" style="font-weight: bold;">
+<a class="nav-link" href="overwatch/hero_stats/">
+        Hero Stats
+    </a>
+</li>
+<div class="dropdown-divider"></div>
+</ul>
+<ul class="navbar-nav pull-right">
+<li class="nav-item" style="font-weight: bold;">
+<a class="nav-link" href="faq/">
+        FAQ &amp; Help
+    </a>
+</li>
+<li class="nav-item" style="font-weight: bold;">
+<a class="nav-link" href="about/">
+        About
+    </a>
+</li>
+<li class="divider-vertical"></li>
+<li class="nav-item dropdown" style="font-weight: bold;">
+<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" style="color: white;">
+                    DEMO-USER
+                </a>
+<div class="dropdown-menu dropdown-menu-right">
+<a class="dropdown-item" href="logout/">Logout</a>
+</div>
+</li>
+</ul>
+</div>
+</nav>
+<div id="edit-target">
+</div>
+<div class="container">
+<div class="card games-selector">
+<!--<div class="card-body">
+            <div class="row">
+                <div class="col-lg-4 col-sm-12 mb-3">
+                    <div class="dropdown season">
+                        <button class="btn btn-primary btn-block dropdown-toggle"
+                                type="button"
+                                id="dropdownMenuButton"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false">
+                            Unknown Season
+                        </button>
+                        <div class="dropdown-menu"
+                             aria-labelledby="dropdownMenuButton"
+                             x-placement="bottom-start"
+                             style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
+                            <a class="dropdown-item" href="?season=None&quickplay=1">Unknown Season</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="custom-control custom-switch custom-switch-lg quickplay ">
+                        <input type="checkbox" checked  class="custom-control-input" id="quickplaySwitch">
+                        <label class="custom-control-label" for="quickplaySwitch">Include Quickplay</label>
+                        <a class="stretched-link"
+                           href="?season=None&quickplay=0"></a>
+                    </div>
+                </div>
+
+                <div class="offset-lg-1 col-lg-3 offset-sm-2 col-sm-4">
+                    <a class="btn btn-primary btn-block"
+                       data-toggle="modal"
+                       data-target="#publicShareLinks"
+                       ic-get-from="/overwatch/games/share_links"
+                       ic-target="#shareLinksContent"
+                       ic-on-complete="on_share_links_loaded"
+                       ic-trigger-on="click once">
+                        Edit Share Link
+                    </a>
+                </div>
+            </div> 
+        </div>-->
+</div>
+<div class="px-0 px-md-2 px-lg-4" id="sessions-list">
+<div class="row session mx-0">
+<div class="col-12 px-0">
+<div class="card">
+<div class="card-header">
+<h5><span class="epoch-format-date">1621802193</span> - DEMO-USER - Competitive</h5>
+</div>
+<div class="card-body">
+<div class="games-list container">
+<div class="row row-cols-1 row-cols-md-3 px-2 session-sr-row justify-content-center">
+<div class="col text-center p-2 session-sr role-support" style="font-size: smaller; font-weight: bold;">
+<img class="img-fluid role-role" src="static/images/overwatch/role_icons/support.svg">
+                                        3512
+                                            <img class="img-fluid" src="static/images/overwatch/rank_icons/master.png">
+                                        →
+                                        3512
+                                            <img class="img-fluid" src="static/images/overwatch/rank_icons/master.png">
+                                        (0)
+                                </img></img></img></div>
+</div>
+<div class="card-deck">
+<div class="card game-summary game-result-loss">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/numbani.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-support">
+<div class="hero-icon-background"></div>
+<img alt="Ana" class="hero-icon-image" src="static/images/overwatch/hero_icons/ana.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-loss">
+                    LOSS
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621803516
+                </h6>
+<div class="card-text">
+<span class="details-text sr-change start-sr-known end-sr-known">
+                                3536
+                                →
+                                3512
+                                (-24)
+                            </span>
+<h6 class="d-inline-block text-muted float-right">5.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-23-20-57-NU6hMH/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-23-20-57-NU6hMH" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div><div class="card game-summary game-result-win">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/busan.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-support">
+<div class="hero-icon-background"></div>
+<img alt="Ana" class="hero-icon-image" src="static/images/overwatch/hero_icons/ana.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-win">
+                    WIN
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621802193
+                </h6>
+<div class="card-text">
+<span class="details-text sr-change start-sr-known end-sr-known">
+                                3512
+                                →
+                                3536
+                                (+24)
+                            </span>
+<h6 class="d-inline-block text-muted float-right">9.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-23-20-35-KbTzJf/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-23-20-35-KbTzJf" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div> <div class="card game-summary" style="height: 0;opacity: 0;">
+</div>
+<div class="card game-summary" style="height: 0;opacity: 0;">
+</div>
+<div class="card game-summary" style="height: 0;opacity: 0;">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row session mx-0">
+<div class="col-12 px-0">
+<div class="card">
+<div class="card-header">
+<h5><span class="epoch-format-date">1621798191</span> - DEMO-USER - Quick Play</h5>
+</div>
+<div class="card-body">
+<div class="games-list container">
+<div class="card-deck">
+<div class="card game-summary game-result-loss">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/lijiang-tower.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-unknown">
+<div class="hero-icon-background"></div>
+<img alt="Baptiste" class="hero-icon-image" src="static/images/overwatch/hero_icons/baptiste.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-loss">
+                    LOSS
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621799308
+                </h6>
+<div class="card-text">
+<span class="details-text rounds">3 rounds</span>
+<h6 class="d-inline-block text-muted float-right">0.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-23-19-47-EjAmWR/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-23-19-47-EjAmWR" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div><div class="card game-summary game-result-loss">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/temple-of-anubis.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-unknown">
+<div class="hero-icon-background"></div>
+<img alt="Ana" class="hero-icon-image" src="static/images/overwatch/hero_icons/ana.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-loss">
+                    LOSS
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621798191
+                </h6>
+<div class="card-text">
+<span class="details-text attacking-defending">Attacking</span>
+<h6 class="d-inline-block text-muted float-right">0.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-23-19-28-cGurRk/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-23-19-28-cGurRk" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div> <div class="card game-summary" style="height: 0;opacity: 0;">
+</div>
+<div class="card game-summary" style="height: 0;opacity: 0;">
+</div>
+<div class="card game-summary" style="height: 0;opacity: 0;">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row session mx-0">
+<div class="col-12 px-0">
+<div class="card">
+<div class="card-header">
+<h5><span class="epoch-format-date">1621791706</span> - DEMO-USER - Quick Play</h5>
+</div>
+<div class="card-body">
+<div class="games-list container">
+<div class="card-deck">
+<div class="card game-summary game-result-loss">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/kings-row.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-unknown">
+<div class="hero-icon-background"></div>
+<img alt="Baptiste" class="hero-icon-image" src="static/images/overwatch/hero_icons/baptiste.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-loss">
+                    LOSS
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621794271
+                </h6>
+<div class="card-text">
+<span class="details-text attacking-defending">Attacking</span>
+<h6 class="d-inline-block text-muted float-right">14.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-23-18-23-VLhHi5/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-23-18-23-VLhHi5" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div><div class="card game-summary game-result-win">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/busan.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-unknown">
+<div class="hero-icon-background"></div>
+<img alt="Ana" class="hero-icon-image" src="static/images/overwatch/hero_icons/ana.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-win">
+                    WIN
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621793052
+                </h6>
+<div class="card-text">
+<span class="details-text rounds">3 rounds</span>
+<h6 class="d-inline-block text-muted float-right">5.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-23-18-03-EsQDWW/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-23-18-03-EsQDWW" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div><div class="card game-summary game-result-win">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/nepal.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-support">
+<div class="hero-icon-background"></div>
+<img alt="Ana" class="hero-icon-image" src="static/images/overwatch/hero_icons/ana.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-win">
+                    WIN
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621792028
+                </h6>
+<div class="card-text">
+<span class="details-text rounds">2 rounds</span>
+<h6 class="d-inline-block text-muted float-right">7.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-23-17-46-ab3Fwi/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-23-17-46-ab3Fwi" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div><div class="card game-summary game-result-win">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/kings-row.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-damage">
+<div class="hero-icon-background"></div>
+<img alt="Mccree" class="hero-icon-image" src="static/images/overwatch/hero_icons/mccree.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-win">
+                    WIN
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621791706
+                </h6>
+<div class="card-text">
+<span class="details-text attacking-defending">Attacking</span>
+<h6 class="d-inline-block text-muted float-right">2.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-23-17-41-ekmMsy/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-23-17-41-ekmMsy" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div> <div class="card game-summary" style="height: 0;opacity: 0;">
+</div>
+<div class="card game-summary" style="height: 0;opacity: 0;">
+</div>
+<div class="card game-summary" style="height: 0;opacity: 0;">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row session mx-0">
+<div class="col-12 px-0">
+<div class="card">
+<div class="card-header">
+<h5><span class="epoch-format-date">1621789240</span> - DEMO-USER - Competitive</h5>
+</div>
+<div class="card-body">
+<div class="games-list container">
+<div class="row row-cols-1 row-cols-md-3 px-2 session-sr-row justify-content-center">
+<div class="col text-center p-2 session-sr role-support" style="font-size: smaller; font-weight: bold;">
+<img class="img-fluid role-role" src="static/images/overwatch/role_icons/support.svg">
+                                        3511
+                                            <img class="img-fluid" src="static/images/overwatch/rank_icons/master.png">
+                                        →
+                                        3511
+                                            <img class="img-fluid" src="static/images/overwatch/rank_icons/diamond.png">
+                                        (0)
+                                </img></img></img></div>
+</div>
+<div class="card-deck">
+<div class="card game-summary game-result-win">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/kings-row.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-support">
+<div class="hero-icon-background"></div>
+<img alt="Baptiste" class="hero-icon-image" src="static/images/overwatch/hero_icons/baptiste.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-win">
+                    WIN
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621790618
+                </h6>
+<div class="card-text">
+<span class="details-text sr-change start-sr-known end-sr-known">
+                                3488
+                                →
+                                3511
+                                (+23)
+                            </span>
+<h6 class="d-inline-block text-muted float-right">5.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-23-17-22-EmWGBu/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-23-17-22-EmWGBu" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div><div class="card game-summary game-result-loss">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/rialto.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-support">
+<div class="hero-icon-background"></div>
+<img alt="Lucio" class="hero-icon-image" src="static/images/overwatch/hero_icons/lucio.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-loss">
+                    LOSS
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621789240
+                </h6>
+<div class="card-text">
+<span class="details-text sr-change start-sr-known end-sr-known">
+                                3511
+                                →
+                                3488
+                                (-23)
+                            </span>
+<h6 class="d-inline-block text-muted float-right">3.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-23-16-59-nZgzep/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-23-16-59-nZgzep" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div> <div class="card game-summary" style="height: 0;opacity: 0;">
+</div>
+<div class="card game-summary" style="height: 0;opacity: 0;">
+</div>
+<div class="card game-summary" style="height: 0;opacity: 0;">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row session mx-0">
+<div class="col-12 px-0">
+<div class="card">
+<div class="card-header">
+<h5><span class="epoch-format-date">1621701419</span> - DEMO-USER - Competitive</h5>
+</div>
+<div class="card-body">
+<div class="games-list container">
+<div class="row row-cols-1 row-cols-md-3 px-2 session-sr-row justify-content-center">
+<div class="col text-center p-2 session-sr role-support" style="font-size: smaller; font-weight: bold;">
+<img class="img-fluid role-role" src="static/images/overwatch/role_icons/support.svg">
+                                        3128
+                                            <img class="img-fluid" src="static/images/overwatch/rank_icons/diamond.png">
+                                        →
+                                        ?
+                                            <img class="img-fluid" src="static/images/overwatch/rank_icons/platinum.png">
+                                        (?)
+                                </img></img></img></div>
+</div>
+<div class="card-deck">
+<div class="card game-summary game-result-loss">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/oasis.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-support">
+<div class="hero-icon-background"></div>
+<img alt="Ana" class="hero-icon-image" src="static/images/overwatch/hero_icons/ana.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-loss">
+                    LOSS
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621711928
+                </h6>
+<div class="card-text">
+<span class="details-text sr-change start-sr-known">
+                                2920
+                                →
+                                ?
+                                (?)
+                            </span>
+<h6 class="d-inline-block text-muted float-right">10.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-22-19-31-DE3QGE/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-22-19-31-DE3QGE" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div><div class="card game-summary game-result-loss">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/hanamura.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-support">
+<div class="hero-icon-background"></div>
+<img alt="Ana" class="hero-icon-image" src="static/images/overwatch/hero_icons/ana.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-loss">
+                    LOSS
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621711087
+                </h6>
+<div class="card-text">
+<span class="details-text sr-change start-sr-known">
+                                2952
+                                →
+                                ?
+                                (?)
+                            </span>
+<h6 class="d-inline-block text-muted float-right">7.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-22-19-16-CprNUg/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-22-19-16-CprNUg" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div><div class="card game-summary game-result-loss">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/blizzard-world.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-support">
+<div class="hero-icon-background"></div>
+<img alt="Baptiste" class="hero-icon-image" src="static/images/overwatch/hero_icons/baptiste.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-loss">
+                    LOSS
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621709951
+                </h6>
+<div class="card-text">
+<span class="details-text sr-change start-sr-known end-sr-known">
+                                2988
+                                →
+                                2952
+                                (-36)
+                            </span>
+<h6 class="d-inline-block text-muted float-right">5.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-22-18-58-mztcvx/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-22-18-58-mztcvx" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div><div class="card game-summary game-result-win">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/watchpoint-gibraltar.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-support">
+<div class="hero-icon-background"></div>
+<img alt="Ana" class="hero-icon-image" src="static/images/overwatch/hero_icons/ana.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-win">
+                    WIN
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621708562
+                </h6>
+<div class="card-text">
+<span class="details-text sr-change start-sr-known end-sr-known">
+                                2948
+                                →
+                                2988
+                                (+40)
+                            </span>
+<h6 class="d-inline-block text-muted float-right">14.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-22-18-34-duQTyq/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-22-18-34-duQTyq" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div><div class="card game-summary game-result-loss">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/hollywood.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-support">
+<div class="hero-icon-background"></div>
+<img alt="Ana" class="hero-icon-image" src="static/images/overwatch/hero_icons/ana.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-loss">
+                    LOSS
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621707586
+                </h6>
+<div class="card-text">
+<span class="details-text sr-change start-sr-known end-sr-known">
+                                2987
+                                →
+                                2948
+                                (-39)
+                            </span>
+<h6 class="d-inline-block text-muted float-right">5.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-22-18-18-JzVnWm/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-22-18-18-JzVnWm" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div><div class="card game-summary game-result-loss">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/nepal.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-support">
+<div class="hero-icon-background"></div>
+<img alt="Baptiste" class="hero-icon-image" src="static/images/overwatch/hero_icons/baptiste.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-loss">
+                    LOSS
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621706508
+                </h6>
+<div class="card-text">
+<span class="details-text sr-change start-sr-known end-sr-known">
+                                3033
+                                →
+                                2987
+                                (-46)
+                            </span>
+<h6 class="d-inline-block text-muted float-right">5.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-22-18-00-5PpdZB/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-22-18-00-5PpdZB" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div><div class="card game-summary game-result-loss">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/ilios.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-support">
+<div class="hero-icon-background"></div>
+<img alt="Ana" class="hero-icon-image" src="static/images/overwatch/hero_icons/ana.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-loss">
+                    LOSS
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621705561
+                </h6>
+<div class="card-text">
+<span class="details-text sr-change start-sr-known end-sr-known">
+                                3088
+                                →
+                                3033
+                                (-55)
+                            </span>
+<h6 class="d-inline-block text-muted float-right">0.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-22-17-45-mqbNSe/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-22-17-45-mqbNSe" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div><div class="card game-summary game-result-loss">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/route-66.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-support">
+<div class="hero-icon-background"></div>
+<img alt="Ana" class="hero-icon-image" src="static/images/overwatch/hero_icons/ana.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-loss">
+                    LOSS
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621703823
+                </h6>
+<div class="card-text">
+<span class="details-text sr-change start-sr-known end-sr-known">
+                                3138
+                                →
+                                3088
+                                (-50)
+                            </span>
+<h6 class="d-inline-block text-muted float-right">6.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-22-17-15-EH5GFD/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-22-17-15-EH5GFD" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div><div class="card game-summary game-result-loss">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/eichenwalde.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-support">
+<div class="hero-icon-background"></div>
+<img alt="Baptiste" class="hero-icon-image" src="static/images/overwatch/hero_icons/baptiste.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-loss">
+                    LOSS
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621702425
+                </h6>
+<div class="card-text">
+<span class="details-text sr-change start-sr-known">
+                                3198
+                                →
+                                ?
+                                (?)
+                            </span>
+<h6 class="d-inline-block text-muted float-right">2.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-22-16-52-eHZtgk/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-22-16-52-eHZtgk" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div><div class="card game-summary game-result-win">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/volskaya-industries.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-support">
+<div class="hero-icon-background"></div>
+<img alt="Zenyatta" class="hero-icon-image" src="static/images/overwatch/hero_icons/zenyatta.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-win">
+                    WIN
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621701419
+                </h6>
+<div class="card-text">
+<span class="details-text sr-change start-sr-known end-sr-known">
+                                3128
+                                →
+                                3198
+                                (+70)
+                            </span>
+<h6 class="d-inline-block text-muted float-right">6.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-22-16-35-do2YBH/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-22-16-35-do2YBH" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div> <div class="card game-summary" style="height: 0;opacity: 0;">
+</div>
+<div class="card game-summary" style="height: 0;opacity: 0;">
+</div>
+<div class="card game-summary" style="height: 0;opacity: 0;">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row session mx-0">
+<div class="col-12 px-0">
+<div class="card">
+<div class="card-header">
+<h5><span class="epoch-format-date">1621693473</span> - DEMO-USER - Competitive</h5>
+</div>
+<div class="card-body">
+<div class="games-list container">
+<div class="row row-cols-1 row-cols-md-3 px-2 session-sr-row justify-content-center">
+<div class="col text-center p-2 session-sr role-support" style="font-size: smaller; font-weight: bold;">
+<img class="img-fluid role-role" src="static/images/overwatch/role_icons/support.svg">
+                                        3558
+                                            <img class="img-fluid" src="static/images/overwatch/rank_icons/master.png">
+                                        →
+                                        ?
+                                            <img class="img-fluid" src="static/images/overwatch/rank_icons/master.png">
+                                        (?)
+                                </img></img></img></div>
+</div>
+<div class="card-deck">
+<div class="card game-summary game-result-loss">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/route-66.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-support">
+<div class="hero-icon-background"></div>
+<img alt="Brigitte" class="hero-icon-image" src="static/images/overwatch/hero_icons/brigitte.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-loss">
+                    LOSS
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621694648
+                </h6>
+<div class="card-text">
+<span class="details-text sr-change start-sr-known">
+                                3535
+                                →
+                                ?
+                                (?)
+                            </span>
+<h6 class="d-inline-block text-muted float-right">4.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-22-14-42-U3oxfZ/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-22-14-42-U3oxfZ" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div><div class="card game-summary game-result-loss">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/hollywood.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-support">
+<div class="hero-icon-background"></div>
+<img alt="Ana" class="hero-icon-image" src="static/images/overwatch/hero_icons/ana.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-loss">
+                    LOSS
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621693473
+                </h6>
+<div class="card-text">
+<span class="details-text sr-change start-sr-known end-sr-known">
+                                3558
+                                →
+                                3535
+                                (-23)
+                            </span>
+<h6 class="d-inline-block text-muted float-right">2.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-22-14-23-kBdpZq/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-22-14-23-kBdpZq" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div> <div class="card game-summary" style="height: 0;opacity: 0;">
+</div>
+<div class="card game-summary" style="height: 0;opacity: 0;">
+</div>
+<div class="card game-summary" style="height: 0;opacity: 0;">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row session mx-0">
+<div class="col-12 px-0">
+<div class="card">
+<div class="card-header">
+<h5><span class="epoch-format-date">1621618492</span> - DEMO-USER - Quick Play</h5>
+</div>
+<div class="card-body">
+<div class="games-list container">
+<div class="card-deck">
+<div class="card game-summary game-result-win">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/junkertown.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-unknown">
+<div class="hero-icon-background"></div>
+<img alt="Baptiste" class="hero-icon-image" src="static/images/overwatch/hero_icons/baptiste.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-win">
+                    WIN
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621622163
+                </h6>
+<div class="card-text">
+<span class="details-text attacking-defending">Defending</span>
+<h6 class="d-inline-block text-muted float-right">7.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-21-18-34-PjBkZF/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-21-18-34-PjBkZF" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div><div class="card game-summary game-result-win">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/eichenwalde.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-unknown">
+<div class="hero-icon-background"></div>
+<img alt="Baptiste" class="hero-icon-image" src="static/images/overwatch/hero_icons/baptiste.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-win">
+                    WIN
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621621135
+                </h6>
+<div class="card-text">
+<span class="details-text attacking-defending">Defending</span>
+<h6 class="d-inline-block text-muted float-right">11.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-21-18-17-QocPSb/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-21-18-17-QocPSb" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div><div class="card game-summary game-result-win">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/ilios.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-unknown">
+<div class="hero-icon-background"></div>
+<img alt="Baptiste" class="hero-icon-image" src="static/images/overwatch/hero_icons/baptiste.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-win">
+                    WIN
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621620497
+                </h6>
+<div class="card-text">
+<span class="details-text rounds">2 rounds</span>
+<h6 class="d-inline-block text-muted float-right">4.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-21-18-07-2Rhha4/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-21-18-07-2Rhha4" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div><div class="card game-summary game-result-unknown">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/lijiang-tower.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-unknown">
+<div class="hero-icon-background"></div>
+<img alt="Baptiste" class="hero-icon-image" src="static/images/overwatch/hero_icons/baptiste.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-unknown">
+                    UNK
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621620248
+                </h6>
+<div class="card-text">
+<span class="details-text rounds">1 rounds</span>
+<h6 class="d-inline-block text-muted float-right">2.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-21-18-03-M9wkP9/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-21-18-03-M9wkP9" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div><div class="card game-summary game-result-unknown">
+<div class="row no-gutters">
+<div class="col thumbnail" style='background-image: url("static/images/overwatch/map_thumbnails/route-66.jpg"); background-color: #222854;display: block;background-size: cover;background-repeat: no-repeat;background-position: center;'>
+<div class="wedge"></div>
+<div class="hero-icon role-support">
+<div class="hero-icon-background"></div>
+<img alt="Ana" class="hero-icon-image" src="static/images/overwatch/hero_icons/ana.png"/>
+</div>
+</div>
+<div class="col">
+<div class="card-body details">
+<h3 class="d-inline-block card-title game-result game-result-unknown">
+                    UNK
+                </h3>
+<h6 class="d-inline-block card-subtitle text-muted float-right game-time epoch-format-time">
+                    1621618492
+                </h6>
+<div class="card-text">
+<span class="details-text attacking-defending">Attacking</span>
+<h6 class="d-inline-block text-muted float-right">11.0 min</h6>
+</div>
+</div>
+</div>
+<a class="stretched-link" href="overwatch/game/2021-05-21-17-34-axgSb2/"></a>
+<a class="edit-link" href="#" ic-get-from="/overwatch/games/edit_game/2021-05-21-17-34-axgSb2" ic-on-complete="setTimeout(function(){$('#editGame').modal('show'); }, 0);" ic-target="#edit-target" ic-trigger-on="click">
+</a>
+</div>
+</div> <div class="card game-summary" style="height: 0;opacity: 0;">
+</div>
+<div class="card game-summary" style="height: 0;opacity: 0;">
+</div>
+<div class="card game-summary" style="height: 0;opacity: 0;">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-body text-center">
+<h5>Mock Overwatch data (offline)</h5>
+<p>If no games appear above, offline mocks failed to render.</p>
+</div>
+</div>
+</div>
+</div>
+<div aria-hidden="true" class="modal fade" id="publicShareLinks" role="dialog" tabindex="-1">
+<div class="modal-dialog" role="document">
+<form ic-on-complete="on_links_saved" ic-post-to="/overwatch/games/share_links" ic-target="#shareLinksContent" ic-verb="POST">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Share Links</h5>
+<button aria-label="Close" class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body container" id="shareLinksContent">
+<div class="text-center">
+<i class="fa fa-spinner fa-spin fa-2x"></i> Loading...
+                    </div>
+</div>
+<div class="modal-footer">
+<button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
+<button class="btn btn-primary" type="submit">Save</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+<script defer="" src="static/js/lib/bootstrap-select-1.13.2.js"></script>
+<script>
+function on_share_links_loaded(){
+    window.setTimeout(() => {
+        $('.selectpicker').selectpicker('refresh');
+        $('#shareLinkURL').tooltip({'trigger':'manual', 'title': 'Copied', 'delay': { "show": 500, "hide": 100 }});
+    });
+}
+function on_links_saved(){
+    window.setTimeout(() => {
+        on_share_links_loaded()
+        $('#publicShareLinks').modal('hide');
+    });
+}
+function copy_share_link(){
+    var shareLinkURL = document.getElementById('shareLinkURL');
+    shareLinkURL.select();
+    shareLinkURL.setSelectionRange(0, 99999);
+    document.execCommand('copy');
+
+    $('#shareLinkURL').tooltip('show');
+    window.setTimeout(() => $('#shareLinkURL').tooltip('hide'), 1500);
+}
+document.addEventListener("DOMContentLoaded", function() {
+    $('.subscribe-tooltip').on('show.bs.tooltip', function () {
+        $('.subscribe-tooltip').not(this).tooltip('hide');
+    });
+});
+</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-99105415-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-99105415-3');
+</script>
+</body>
+</html>
